@@ -1,0 +1,1 @@
+<view><view><navigator url="../modify/modify" hover-class="navigator-hover"><view data-event-opts="{{[['tap',[['test',['$event']]]]]}}" bindtap="__e">修改</view></navigator></view></view>

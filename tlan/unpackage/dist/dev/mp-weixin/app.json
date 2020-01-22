@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/resume/resume",
+    "pages/index/index",
+    "pages/modify/modify",
+    "pages/position/position",
+    "pages/increase/increase"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/position/position",
+        "iconPath": "static/image/position.png",
+        "selectedIconPath": "static/image/position1.png",
+        "text": "职位"
+      },
+      {
+        "pagePath": "pages/resume/resume",
+        "iconPath": "static/image/jl.png",
+        "selectedIconPath": "static/image/jl1.png",
+        "text": "简历"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/image/my.png",
+        "selectedIconPath": "static/image/my1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap46.json"
+}

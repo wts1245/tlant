@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "uni-popup": "/components/city-data/uni-popup"
+  }
+}
