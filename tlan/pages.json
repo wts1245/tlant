@@ -24,7 +24,7 @@
         ,{
             "path" : "pages/position/position",
             "style" : {
-				"transparentTitle":"职位"
+				"navigationBarTitleText":"职位"
 			}
         }
         

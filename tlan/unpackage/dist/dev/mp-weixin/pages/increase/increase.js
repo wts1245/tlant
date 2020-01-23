@@ -358,7 +358,18 @@ var _cityArea = _interopRequireDefault(__webpack_require__(/*! @/components/city
 //
 //
 //
-var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/city-data/uni-popup */ "components/city-data/uni-popup").then(__webpack_require__.bind(null, /*! @/components/city-data/uni-popup.vue */ 74));};var _default = { components: { uniPopup: uniPopup }, data: function data() {return { provinceData: _cityArea.default, cityData: [], areaData: [], selectList: [{ txt: '请选择' }, { txt: '请选择' }, { txt: '请选择' }], tabOne: '请选择', indexTab: 0, proviceShow: true, areaShow: false, cityShow: false, show: false, type: '', checkOne: null, checkTwo: null, checkThree: null, city: [], evaluate: '', vitae: '', mailbox: '', sex: '', phone: '', post: '', salary: '', state: '', name: '', Certificates: '' };}, methods: { formSubmit: function formSubmit(e) {var _this = this;console.log(e);this.Certificates = e.detail.value.Certificates;this.name = e.detail.value.name;this.mailbox = e.detail.value.mailbox;this.sex = e.detail.value.sex;this.phone = e.detail.value.phone;this.post = e.detail.value.post;this.salary = e.detail.value.salary;this.state = e.detail.value.state;if (this.name == null && this.Certificates == null && this.sex == null && this.city == null && this.evaluate == nul && this.vitae == null && this.phone == null && this.post && this.salary == null && this.state == null && this.mailbox) {uni.showToast({ title: '请填写完整信息！！！', icon: 'fail', duration: 1000, mask: true });} else {uni.setStorageSync("name", this.name);setTimeout(function () {uni.redirectTo({ url: "../modify/modify?name=" + _this.name });}, 600);}}, test: function test() {var tt = this.name;console.log(tt);}, textareaAInput: function textareaAInput(e) {var vitae = e.detail.value;this.vitae = vitae;}, textareaBInput: function textareaBInput(e) {var evaluate = e.detail.value;this.evaluate = evaluate;}, togglePopup: function togglePopup(type, open) {this.type = type;if (open === 'tip') {this.show = true;} else {this.$refs[open].open();}}, cancel: function cancel(type) {if (type === 'tip') {this.show = false;return;}this.$refs[type].close();}, change: function change(e) {if (e.show == true) {uni.hideTabBar();} else {uni.showTabBar();}}, tabEvent: function tabEvent(index) {this.indexTab = index;if (this.indexTab == 0) {this.proviceShow = true;this.cityShow = false;this.areaShow = false; // this.checkOne = null
+var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | components/city-data/uni-popup */ "components/city-data/uni-popup").then(__webpack_require__.bind(null, /*! @/components/city-data/uni-popup.vue */ 74));};var _default = { components: { uniPopup: uniPopup }, data: function data() {return { provinceData: _cityArea.default, cityData: [], areaData: [], selectList: [{ txt: '请选择' }, { txt: '请选择' }, { txt: '请选择' }], tabOne: '请选择', indexTab: 0, proviceShow: true, areaShow: false, cityShow: false, show: false, type: '', checkOne: null, checkTwo: null, checkThree: null, city: [], evaluate: '', vitae: '', mailbox: '', sex: '', phone: '', post: '', salary: '', state: '', name: '', Certificates: '' };}, methods: { formSubmit: function formSubmit(e) {// console.log(e)
+      this.Certificates = e.detail.value.Certificates;this.name = e.detail.value.name;this.mailbox = e.detail.value.mailbox;this.sex = e.detail.value.sex;this.phone = e.detail.value.phone;this.post = e.detail.value.post;this.salary = e.detail.value.salary;this.state = e.detail.value.state;if (this.name == null && this.Certificates == null && this.sex == null && this.city == null && this.evaluate == nul && this.vitae == null && this.phone == null && this.post && this.salary == null && this.state == null && this.mailbox) {uni.showToast({ title: '请填写完整信息！！！', icon: 'fail', duration: 1000, mask: true });} else {try {uni.setStorageSync("name", this.name);uni.setStorageSync("city", this.city);uni.setStorageSync("evaluate", this.evaluate);uni.setStorageSync("vitae", this.vitae);uni.setStorageSync("mailbox", this.mailbox);uni.setStorageSync("sex", this.sex);uni.setStorageSync("phone", this.phone);uni.setStorageSync("post", this.post);uni.setStorageSync("salary", this.salary);uni.setStorageSync("state", this.state);uni.setStorageSync("Certificates", this.Certificates);} catch (e) {//TODO handle the exception
+        }setTimeout(function () {uni.switchTab({ url: "../resume/resume" });}, 600);}}, textareaAInput: function textareaAInput(e) {var vitae = e.detail.value;this.vitae = vitae;}, textareaBInput: function textareaBInput(e) {var evaluate = e.detail.value;this.evaluate = evaluate;}, togglePopup: function togglePopup(type, open) {this.type = type;if (open === 'tip') {this.show = true;} else {this.$refs[open].open();}}, cancel: function cancel(type) {if (type === 'tip') {this.show = false;return;}this.$refs[type].close();}, change: function change(e) {if (e.show == true) {uni.hideTabBar();} else {uni.showTabBar();
+      }
+    },
+    tabEvent: function tabEvent(index) {
+      this.indexTab = index;
+      if (this.indexTab == 0) {
+        this.proviceShow = true;
+        this.cityShow = false;
+        this.areaShow = false;
+        // this.checkOne = null
         this.checkTwo = null;
         this.checkThree = null;
         // this.cityData = []
@@ -383,7 +394,7 @@ var uniPopup = function uniPopup() {return __webpack_require__.e(/*! import() | 
     },
     //省级选择
     provinceEvent: function provinceEvent(data, index) {
-      console.log(data);
+      // console.log(data)
       var city = data.name;
       this.city[0] = city;
       this.checkOne = index;

@@ -177,6 +177,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 21);var tuiFab = function tuiFab() {return __webpack_require__.e(/*! import() | components/tui-fab/tui-fab */ "components/tui-fab/tui-fab").then(__webpack_require__.bind(null, /*! @/components/tui-fab/tui-fab */ 67));};var _default =
 
 {
@@ -186,6 +187,21 @@ var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 2
 
   data: function data() {
     return {
+      name: "",
+      sex: "",
+      city: "",
+      state: "",
+      evaluate: "",
+      vitae: "",
+      mailbox: "",
+      phone: "",
+      post: "",
+      salary: "",
+      province: "",
+      cty: "",
+      area: "",
+      Certificates: "",
+      length: "",
       left: 0,
       right: 80,
       bottom: 100,
@@ -238,8 +254,106 @@ var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 2
 
   },
   onLoad: function onLoad(options) {
-    console.log(options);
     this.btnList = _toConsumableArray(this.list);
+    try {
+      var name = uni.getStorageSync("name");
+      var sex = uni.getStorageSync("sex");
+      var city = uni.getStorageSync("city");
+      var state = uni.getStorageSync("state");
+      var evaluate = uni.getStorageSync("evaluate");
+      var vitae = uni.getStorageSync("vitae");
+      var mailbox = uni.getStorageSync("mailbox");
+      var phone = uni.getStorageSync("phone");
+      var post = uni.getStorageSync("post");
+      console.log(post);
+      var salary = uni.getStorageSync("salary");
+      var Certificates = uni.getStorageSync("Certificates");
+      var length = Certificates.length;
+      this.length = length;
+      console.log(length + "长度");
+    } catch (e) {
+      //TODO handle the exception
+    }
+    this.name = name;
+    this.sex = sex;
+    if (city != null) {
+      var province = city[0];
+      this.province = province;
+      var cty = city[1];
+      this.cty = cty;
+      var area = city[2];
+      this.area = area;
+    } else {
+      console.log("空");
+    }
+    this.post = post;
+    this.evaluate = evaluate;
+    this.vitae = vitae;
+    this.mailbox = mailbox;
+    if (state == 0) {
+      var state1 = "在职";
+      this.state = state1;
+    } else if (state == 1) {
+      var state2 = "离职";
+      this.state = state2;
+      console.log(post);
+    } else {
+      var state3 = "骑驴找马";
+      this.state = state3;
+    }
+    this.salary = salary;
+    this.Certificates = Certificates;
+  },
+  onShow: function onShow() {
+    try {
+      var name = uni.getStorageSync("name");
+      this.name = name;
+      var sex = uni.getStorageSync("sex");
+      this.sex = sex;
+      var city = uni.getStorageSync("city");
+      if (city != null) {
+        var province = city[0];
+        this.province = province;
+        console.log(province);
+        var cty = city[1];
+        this.cty = cty;
+        var area = city[2];
+        this.area = area;
+      } else {
+        console.log("空");
+      }
+      var state = uni.getStorageSync("state");
+      this.state = state;
+      var evaluate = uni.getStorageSync("evaluate");
+      this.evaluate = evaluate;
+      var vitae = uni.getStorageSync("vitae");
+      this.vitae = vitae;
+      var mailbox = uni.getStorageSync("mailbox");
+      this.mailbox = mailbox;
+      var phone = uni.getStorageSync("phone");
+      this.phone = phone;
+      var post = uni.getStorageSync("post");
+      this.post = post;
+      if (state == 0) {
+        var state1 = "在职";
+        this.state = state1;
+      } else if (state == 1) {
+        var state2 = "离职";
+        this.state = state2;
+      } else {
+        var state3 = "骑驴找马";
+        this.state = state3;
+      }
+      var salary = uni.getStorageSync("salary");
+      this.salary = salary;
+      var Certificates = uni.getStorageSync("Certificates");
+      this.Certificates = Certificates;
+      var length = Certificates.length;
+      this.length = length;
+      console.log(length);
+    } catch (e) {
+      //TODO handle the exception
+    }
   },
   methods: {
     change: function change(type) {
@@ -268,14 +382,14 @@ var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 2
         default:
           break;}
 
-      this.tui.toast("切换成功，点击查看效果");
+      // this.tui.toast("切换成功，点击查看效果")
     },
     onClick: function onClick(e) {
       var index = e.index;
       console.log(e + 'onclick');
       switch (index) {
         case -1:
-          this.tui.toast("您点击了悬浮按钮");
+          // this.tui.toast("您点击了悬浮按钮")
           break;
         case 0:
           uni.navigateTo({
@@ -306,13 +420,13 @@ var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 2
           break;}
 
     },
-    clipboard: function clipboard(data) {var _this = this;
+    clipboard: function clipboard(data) {
       thorui.getClipboardData(data, function (res) {
         if (res) {
-          _this.tui.toast("分享链接已复制");
+          // this.tui.toast("分享链接已复制")
         } else {
-          _this.tui.toast("分享链接复制失败");
-        }
+            // this.tui.toast("分享链接复制失败")
+          }
       });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

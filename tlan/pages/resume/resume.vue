@@ -1,32 +1,33 @@
 <template>
 	<view class="container">
-		<view class="header">
-			<view class="cu-card case" :class="isCard?'no-card':''">
-				<view class="cu-item shadow">
-					<view class="image">
-						<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"
-						 mode="widthFix"></image>
-						<view class="cu-tag bg-blue">网络工程师</view>
-						<view class="cu-bar bg-shadeBottom"> <text class="text-cut">我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。</text></view>
-					</view>
-					<view class="cu-list menu-avatar">
-						<view class="cu-item">
-						
-							<view class="content flex-sub">
-								<view class="text-grey">正义天使 凯尔</view>
-								<view class="text-gray text-sm flex justify-between">
-									十天前
-									<view class="text-gray text-sm">
-										<text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-										<text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
-										<text class="cuIcon-messagefill margin-lr-xs"></text> 30
-									</view>
-								</view>
-							</view>
-						</view>
-					</view>
-				</view>
+		<view class="content" v-if="length>0">
+			<view class="">
+				姓名：{{name}}
 			</view>
+			<view class="">
+				岗位：{{post}}
+			</view>
+			<view class="">
+				期望薪资：{{salary}}
+			</view>
+			<view class="">
+				期望工作地点：{{province}}{{cty}}{{area}}
+			</view>
+			<view class="">
+				邮件：{{mailbox}}
+			</view>
+			<view class="">
+				电话：{{phone}}
+			</view>
+			<view class="padding bg-white solid-bottom">
+				<view class='cu-tag round'>职业状态：{{state}}</view>
+			</view>
+		</view>
+		<view class="watermark" v-else-if="length==0">
+			<!-- <image src="../../static/image/sy.jpg" mode="" class=""></image> -->
+			添加简历让你的boss早日找到你吧！！！
+		</view>
+		<view class="header">
 			<tui-fab :left="left" :right="right" :bottom="bottom" :bgColor="bgColor" :btnList="btnList" @click="onClick"></tui-fab>
 		</view>
 	</view>
@@ -42,6 +43,21 @@
 		},
 		data() {
 			return {
+				name:"",
+				sex:"",
+				city:"",
+				state:"",
+				evaluate:"",
+				vitae:"",
+				mailbox:"",
+				phone:"",
+				post:"",
+				salary:"",
+				province:"",
+				cty:"",
+				area:"",
+				Certificates:"" ,
+				length:"",
 				left: 0,
 				right: 80,
 				bottom: 100,
@@ -94,8 +110,106 @@
 			}
 		},
 		onLoad(options) {
-			console.log(options)
 			this.btnList = [...this.list]
+			try{
+				var name = uni.getStorageSync("name");
+				var sex = uni.getStorageSync("sex");
+				var city = uni.getStorageSync("city");
+				var state = uni.getStorageSync("state");
+				var evaluate = uni.getStorageSync("evaluate");
+				var vitae = uni.getStorageSync("vitae");
+				var mailbox = uni.getStorageSync("mailbox");
+				var phone = uni.getStorageSync("phone");
+				var post = uni.getStorageSync("post");
+				console.log(post)
+				var salary = uni.getStorageSync("salary");
+				var Certificates = uni.getStorageSync("Certificates");
+				var length = Certificates.length;
+				this.length = length;
+				console.log(length+"长度")
+			}catch(e){
+				//TODO handle the exception
+			}
+		this.name = name;
+		this.sex = sex;
+		if(city!=null){
+			var province =city[0]
+			this.province = province;
+			var cty =city[1]
+			this.cty = cty;
+			var area=city[2]
+			this.area = area;
+		}else{
+			console.log("空")
+		}
+		this.post = post;
+		this.evaluate = evaluate;
+		this.vitae = vitae;
+		this.mailbox = mailbox;
+		if(state==0){
+			 var state1="在职";
+			this.state = state1;
+		}else if(state==1){
+			var state2="离职";
+			this.state=state2;
+			console.log(post)
+		}else{
+			var state3="骑驴找马";
+			this.state=state3
+		}
+		this.salary = salary;
+		this.Certificates = Certificates;
+		},
+		onShow() {
+			try{
+				var name = uni.getStorageSync("name");
+				this.name=name;
+				var sex = uni.getStorageSync("sex");
+				this.sex=sex;
+				var city = uni.getStorageSync("city");
+				if(city!=null){
+					var province =city[0]
+					this.province = province;
+					console.log(province)
+					var cty =city[1]
+					this.cty = cty;
+					var area=city[2]
+					this.area = area;
+				}else{
+					console.log("空")
+				}
+				var state = uni.getStorageSync("state");
+				this.state = state;
+				var evaluate = uni.getStorageSync("evaluate");
+				this.evaluate = evaluate;
+				var vitae = uni.getStorageSync("vitae");
+				this.vitae = vitae;
+				var mailbox = uni.getStorageSync("mailbox");
+				this.mailbox = mailbox;
+				var phone = uni.getStorageSync("phone");
+				this.phone = phone;
+				var post = uni.getStorageSync("post");
+				this.post = post;
+				if(state==0){
+					 var state1="在职";
+					this.state = state1;
+				}else if(state==1){
+					var state2="离职";
+					this.state=state2;
+				}else{
+					var state3="骑驴找马";
+					this.state=state3
+				}
+				var salary = uni.getStorageSync("salary");
+				this.salary = salary;
+				var Certificates = uni.getStorageSync("Certificates");
+				this.Certificates = Certificates;
+				var length = Certificates.length;
+				this.length = length;
+				console.log(length)
+			}catch(e){
+				//TODO handle the exception
+			}
 		},
 		methods: {
 			change(type) {
@@ -124,14 +238,14 @@
 					default:
 						break;
 				}
-				this.tui.toast("切换成功，点击查看效果")
+				// this.tui.toast("切换成功，点击查看效果")
 			},
 			onClick(e) {
 				let index = e.index
 				console.log(e + 'onclick')
 				switch (index) {
 					case -1:
-						this.tui.toast("您点击了悬浮按钮")
+						// this.tui.toast("您点击了悬浮按钮")
 						break;
 					case 0:
 						uni.navigateTo({
@@ -165,9 +279,9 @@
 			clipboard: function(data) {
 				thorui.getClipboardData(data, (res) => {
 					if (res) {
-						this.tui.toast("分享链接已复制")
+						// this.tui.toast("分享链接已复制")
 					} else {
-						this.tui.toast("分享链接复制失败")
+						// this.tui.toast("分享链接复制失败")
 					}
 				})
 			}
@@ -176,6 +290,27 @@
 </script>
 
 <style>
+	.watermark{
+		font-size: 40upx;
+		font-family: KaiTi;
+		font-style: inherit;
+		padding: 0px;
+		            width:500px;
+		            height:200px;
+		            text-align:center;
+		            display: table-cell;
+		            vertical-align:middle
+	}
+	.content{
+		background-color:white ;
+		margin-top: 20upx;
+		height: 400upx;
+		 margin: 0 auto;
+		  width: 95%;
+		  margin-top: 2%;
+		  border: 1rpx solid white;
+		  border-radius: 10rpx;
+	}
 	.container {
 		padding: 20rpx 0 120rpx 0;
 		box-sizing: border-box;

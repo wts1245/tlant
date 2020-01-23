@@ -104,7 +104,7 @@
 			</view>
 
 			<view class="padding flex flex-direction">
-				<button class="cu-btn block bg-blue margin-tb-sm lg" @tap='test' form-type="submit">提交</button>
+				<button class="cu-btn block bg-blue margin-tb-sm lg" form-type="submit">提交</button>
 			</view>
 		</form>
 	</view>
@@ -154,7 +154,7 @@
 		},
 		methods: {
 			formSubmit(e) {
-				console.log(e)
+				// console.log(e)
 				this.Certificates = e.detail.value.Certificates;
 				this.name = e.detail.value.name;
 				this.mailbox = e.detail.value.mailbox;
@@ -174,17 +174,28 @@
 						mask:true
 					})
 				} else {
-					uni.setStorageSync("name",this.name)
+					try{
+						uni.setStorageSync("name",this.name);
+						uni.setStorageSync("city",this.city);
+						uni.setStorageSync("evaluate",this.evaluate);
+						uni.setStorageSync("vitae",this.vitae);
+						uni.setStorageSync("mailbox",this.mailbox);
+						uni.setStorageSync("sex",this.sex);
+						uni.setStorageSync("phone",this.phone);
+						uni.setStorageSync("post",this.post);
+						uni.setStorageSync("salary",this.salary);
+						uni.setStorageSync("state",this.state);
+						uni.setStorageSync("Certificates",this.Certificates);
+					}catch(e){
+						//TODO handle the exception
+					}
+					
 					setTimeout(() => {
-						uni.redirectTo({
-							url: "../modify/modify?name=" + this.name,
+						uni.switchTab({
+							url: "../resume/resume" ,	
 						});
 					}, 600);
 				}
-			},
-			test(){
-				var tt = this.name
-				console.log(tt)
 			},
 			textareaAInput(e) {
 				var vitae = e.detail.value;
@@ -248,7 +259,7 @@
 			},
 			//省级选择
 			provinceEvent(data, index) {
-				console.log(data)
+				// console.log(data)
 				var city = data.name;
 				this.city[0] = city;
 				this.checkOne = index
@@ -266,7 +277,7 @@
 				this.checkTwo = index
 				this.selectList[1].txt = data.name
 				this.indexTab = 2
-				this.proviceShow = false
+				this.proviceShow =	 false
 				this.cityShow = false
 				this.areaShow = true
 				this.areaData = data.areaList

@@ -1,4 +1,25 @@
 
+.watermark{
+	font-size: 40rpx;
+	font-family: KaiTi;
+	font-style: inherit;
+	padding: 0px;
+	            width:500px;
+	            height:200px;
+	            text-align:center;
+	            display: table-cell;
+	            vertical-align:middle
+}
+.content{
+	background-color:white ;
+	margin-top: 20rpx;
+	height: 400rpx;
+	 margin: 0 auto;
+	  width: 95%;
+	  margin-top: 2%;
+	  border: 1rpx solid white;
+	  border-radius: 10rpx;
+}
 .container {
 	padding: 20rpx 0 120rpx 0;
 	box-sizing: border-box;
