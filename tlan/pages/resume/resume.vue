@@ -1,26 +1,27 @@
 <template>
 	<view class="container">
 		<view class="content" v-if="length>0">
-			<view class="">
-				姓名：{{name}}
-			</view>
-			<view class="">
-				岗位：{{post}}
-			</view>
-			<view class="">
-				期望薪资：{{salary}}
-			</view>
-			<view class="">
-				期望工作地点：{{province}}{{cty}}{{area}}
-			</view>
-			<view class="">
-				邮件：{{mailbox}}
-			</view>
-			<view class="">
-				电话：{{phone}}
-			</view>
-			<view class="padding bg-white solid-bottom">
-				<view class='cu-tag round'>职业状态：{{state}}</view>
+			<view class="cu-item">
+				<view class="text-grey">{{name}}</view>
+				<view class="content">
+					<view class="text-grey">期望工作地点：</view>
+					<view class="text-gray text-content text-df">
+						{{province}}{{cty}}{{area}}
+					</view>
+					<view class="bg-grey padding-sm radius margin-top-sm  text-sm">
+						<view class="flex">
+							<view>个人评价：</view>
+							<view class="flex-sub"><textarea value="123121321" placeholder="" />{{evaluate}}</view>
+						</view>
+					</view>
+					<view class="margin-top-sm flex justify-between">
+						<view class="text-gray text-df"><view class="cu-tag bg-red light sm round">3000元</view></view>
+						<view>
+							<view class="cu-tag bg-red light sm round">{{post}}</view>
+							<view class="cu-tag bg-green light sm round">{{state}}</view>
+						</view>
+					</view>
+				</view>
 			</view>
 		</view>
 		<view class="watermark" v-else-if="length==0">
@@ -116,6 +117,7 @@
 				var sex = uni.getStorageSync("sex");
 				var city = uni.getStorageSync("city");
 				var state = uni.getStorageSync("state");
+				console.log(state+'state')
 				var evaluate = uni.getStorageSync("evaluate");
 				var vitae = uni.getStorageSync("vitae");
 				var mailbox = uni.getStorageSync("mailbox");
@@ -145,14 +147,14 @@
 		this.post = post;
 		this.evaluate = evaluate;
 		this.vitae = vitae;
-		this.mailbox = mailbox;
+		this.mailbox = mailbox;ss
 		if(state==0){
 			 var state1="在职";
 			this.state = state1;
 		}else if(state==1){
 			var state2="离职";
 			this.state=state2;
-			console.log(post)
+			console.log(state)
 		}else{
 			var state3="骑驴找马";
 			this.state=state3
@@ -179,7 +181,7 @@
 					console.log("空")
 				}
 				var state = uni.getStorageSync("state");
-				this.state = state;
+				console.log(state+'state1')
 				var evaluate = uni.getStorageSync("evaluate");
 				this.evaluate = evaluate;
 				var vitae = uni.getStorageSync("vitae");

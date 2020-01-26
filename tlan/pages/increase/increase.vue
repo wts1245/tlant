@@ -149,13 +149,15 @@
 				salary: '',
 				state: '',
 				name: '',
-				Certificates: ''
+				Certificates: '',
+				length:''
 			}
 		},
 		methods: {
 			formSubmit(e) {
 				// console.log(e)
 				this.Certificates = e.detail.value.Certificates;
+				var Certificates = e.detail.value.Certificates;
 				this.name = e.detail.value.name;
 				this.mailbox = e.detail.value.mailbox;
 				this.sex = e.detail.value.sex;
@@ -163,17 +165,15 @@
 				this.post = e.detail.value.post;
 				this.salary = e.detail.value.salary;
 				this.state = e.detail.value.state;
-				
-				if (this.name == null && this.Certificates == null && this.sex == null && this.city == null && this.evaluate == nul &&
-					this.vitae == null && this.phone == null && this.post && this.salary == null && this.state == null && this.mailbox
-				) {
+				var length = Certificates
+				if (length==0) {
 					uni.showToast({
 						title: '请填写完整信息！！！',
 						icon: 'fail',
 						duration: 1000,
 						mask:true
 					})
-				} else {
+				} else{
 					try{
 						uni.setStorageSync("name",this.name);
 						uni.setStorageSync("city",this.city);
@@ -189,13 +189,13 @@
 					}catch(e){
 						//TODO handle the exception
 					}
-					
-					setTimeout(() => {
-						uni.switchTab({
-							url: "../resume/resume" ,	
-						});
-					}, 600);
-				}
+						setTimeout(() => {
+								uni.switchTab({
+									url: "../resume/resume" ,	
+								});
+							}, 600);
+						}
+
 			},
 			textareaAInput(e) {
 				var vitae = e.detail.value;

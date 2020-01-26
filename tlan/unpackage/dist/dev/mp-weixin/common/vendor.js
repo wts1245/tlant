@@ -21962,7 +21962,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/resume/resume": { "navigationBarTitleText": "简历" }, "pages/index/index": { "navigationBarTitleText": "我的" }, "pages/modify/modify": { "navigationBarTitleText": "修改" }, "pages/position/position": { "navigationBarTitleText": "职位" }, "pages/increase/increase": {} }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/resume/resume": { "navigationBarTitleText": "简历", "usingComponents": { "tui-button": "/components/extend/button/button", "tui-fab": "/components/tui-fab/tui-fab" }, "usingAutoImportComponents": {} }, "pages/index/index": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/modify/modify": { "navigationBarTitleText": "修改", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/position/position": { "navigationBarTitleText": "职位", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/increase/increase": { "usingComponents": { "uni-popup": "/components/city-data/uni-popup" }, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 

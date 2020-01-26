@@ -178,6 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 21);var tuiFab = function tuiFab() {return __webpack_require__.e(/*! import() | components/tui-fab/tui-fab */ "components/tui-fab/tui-fab").then(__webpack_require__.bind(null, /*! @/components/tui-fab/tui-fab */ 67));};var _default =
 
 {
@@ -260,6 +261,7 @@ var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 2
       var sex = uni.getStorageSync("sex");
       var city = uni.getStorageSync("city");
       var state = uni.getStorageSync("state");
+      console.log(state + 'state');
       var evaluate = uni.getStorageSync("evaluate");
       var vitae = uni.getStorageSync("vitae");
       var mailbox = uni.getStorageSync("mailbox");
@@ -289,14 +291,14 @@ var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 2
     this.post = post;
     this.evaluate = evaluate;
     this.vitae = vitae;
-    this.mailbox = mailbox;
+    this.mailbox = mailbox;ss;
     if (state == 0) {
       var state1 = "在职";
       this.state = state1;
     } else if (state == 1) {
       var state2 = "离职";
       this.state = state2;
-      console.log(post);
+      console.log(state);
     } else {
       var state3 = "骑驴找马";
       this.state = state3;
@@ -323,7 +325,7 @@ var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 2
         console.log("空");
       }
       var state = uni.getStorageSync("state");
-      this.state = state;
+      console.log(state + 'state1');
       var evaluate = uni.getStorageSync("evaluate");
       this.evaluate = evaluate;
       var vitae = uni.getStorageSync("vitae");
