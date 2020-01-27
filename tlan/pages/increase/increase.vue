@@ -153,6 +153,9 @@
 				length:''
 			}
 		},
+		onLoad(options) {
+			console.log(options)
+		},
 		methods: {
 			formSubmit(e) {
 				// console.log(e)

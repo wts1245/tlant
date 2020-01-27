@@ -3032,7 +3032,7 @@ scroll-view.cu-steps .cu-item {
 	padding: 40rpx;
 }
 .padding-xl {
-	padding: 50rpx;
+	padding: 10rpx;
 }
 .padding-top-xs {
 	padding-top: 10rpx;

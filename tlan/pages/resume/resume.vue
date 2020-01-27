@@ -11,7 +11,7 @@
 					<view class="bg-grey padding-sm radius margin-top-sm  text-sm">
 						<view class="flex">
 							<view>个人评价：</view>
-							<view class="flex-sub"><textarea value="123121321" placeholder="" />{{evaluate}}</view>
+							<view class="flex-sub"><textarea value="" placeholder="" />{{evaluate}}</view>
 						</view>
 					</view>
 					<view class="margin-top-sm flex justify-between">
@@ -249,29 +249,21 @@
 					case -1:
 						// this.tui.toast("您点击了悬浮按钮")
 						break;
+						// 增加简历
 					case 0:
 						uni.navigateTo({
 							url: "/pages/increase/increase"
 						})
 						break;
+						// 删除简历
 					case 1:
-						// #ifdef MP || H5
-						this.clipboard("https://thorui.cn/")
-						// #endif
-						//#ifdef APP-PLUS
-						plus.share.sendWithSystem({
-							content: "ThorUI组件库",
-							href: 'https://thorui.cn/'
-						}, function() {
-							console.log('分享成功');
-						}, function(e) {
-							console.log('分享失败：' + JSON.stringify(e));
-						});
-						//#endif
+						console.log("你点击了删除按钮")
 						break;
+						// 修改简历
 					case 2:
-						uni.previewImage({
-							urls: ["https://thorui.cn/img/reward.jpg"]
+						// console.log("你点击了修改按钮")
+						uni.navigateTo({
+							url: "/pages/increase/increase?Certificates="+this.Certificates
 						})
 						break;
 					default:

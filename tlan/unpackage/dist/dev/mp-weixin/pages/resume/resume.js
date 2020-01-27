@@ -393,29 +393,21 @@ var thorui = __webpack_require__(/*! @/components/utils/clipboard.thorui.js */ 2
         case -1:
           // this.tui.toast("您点击了悬浮按钮")
           break;
+        // 增加简历
         case 0:
           uni.navigateTo({
             url: "/pages/increase/increase" });
 
           break;
+        // 删除简历
         case 1:
-
-          this.clipboard("https://thorui.cn/");
-
-
-
-
-
-
-
-
-
-
-
+          console.log("你点击了删除按钮");
           break;
+        // 修改简历
         case 2:
-          uni.previewImage({
-            urls: ["https://thorui.cn/img/reward.jpg"] });
+          // console.log("你点击了修改按钮")
+          uni.navigateTo({
+            url: "/pages/increase/increase?Certificates=" + this.Certificates });
 
           break;
         default:

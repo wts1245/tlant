@@ -1,0 +1,14 @@
+
+.padding-xl {
+	margin-left: 10rpx;
+}
+.inside {
+	height: 280rpx;
+	background-color: #9C26B0;
+}
+.nb {
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
