@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="padding ">
-			<view class="padding-xl radius shadow bg-white" @click="position">
+			<view class="padding-xl radius shadow bg-white" @click="position" >
 				<view class="container">
 					网络工程师	
 				</view>
@@ -25,17 +25,28 @@
 		</view>
 	</view>
 </template>
-
 <script>
 	export default {
 		data() {
 			return {
-
+			
 			}
+		},
+		onLoad() {
+			// 获取职位信息
+			uni.request({
+				url:'',
+				data:{
+					
+				},
+				method:'POST'
+			})
 		},
 		methods: {
 		position(e){
-			console.log(e)
+			uni.navigateTo({
+				url:'../details/details'
+			})
 		}
 		}
 	}
